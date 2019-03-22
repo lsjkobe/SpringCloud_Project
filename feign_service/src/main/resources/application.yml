@@ -1,0 +1,29 @@
+server:
+  port: 8098
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8091/eureka/
+
+spring:
+  application:
+    name: feign-service
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+
+
+
+feign:
+  hystrix:
+    enabled: true
+
+# To set thread isolation to SEMAPHORE
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE

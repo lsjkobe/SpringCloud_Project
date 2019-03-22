@@ -1,0 +1,35 @@
+server:
+  port: 8999
+
+spring:
+  application:
+    name: service-ribbon
+# 单点故障重试配置
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds=10000:
+
+OLD-CLASSMATE:
+    ribbon:
+      ConnectTimeout: 250
+      ReadTimeout: 1000
+      OkToRetryOnAllOperations: true
+      MaxAutoRetriesNextServer: 2
+      MaxAutoRetries: 1
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8091/eureka/
+
+
