@@ -1,0 +1,21 @@
+# leo_pro
+# 1. 需要修改application.yml(用户级)的名字为bootstrap.yml，要不由于加载的优先级，会先加载bootstrap.yml的默认端口8888（spring.cloud.config.uri=8888），这里配置的不起作用->源码ConfigServerBootstrapConfiguration
+# 2. 或者通过环境变量
+
+server:
+  port: 8097
+
+
+#对称性加密
+encrypt:
+  key: didispace
+  #非对称性加密配置config-client.keystore是通过java的keytool工具生成 ed:keytool -genkeypair -alias config-server -keyalg RSA -keystore config-server.keystore
+  #在git上的配置文件上面的配置如果是加密后的密文，需要解密，这时候要在前面加上{cipher}，如果是yaml格式的还需要加上引号，要不yaml解析不出来报错(ScannerImpl->fetchMoreTokens()),client解密EnvironmentEncryptorEnvironmentRepository->findOne
+  key-store:
+    location: classpath:config-server.keystore
+    alias: config-server
+    password: li936339745
+    secret: li936339745
+
+
+

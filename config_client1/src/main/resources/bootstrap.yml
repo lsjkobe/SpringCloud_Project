@@ -1,0 +1,36 @@
+#需要修改application.yml(用户级)的名字为bootstrap.yml，要不由于加载的优先级，会先加载bootstrap.yml的默认端口8888（spring.cloud.config.uri=8888），这里配置的不起作用->源码ConfigServerBootstrapConfiguration
+# 2. 或者通过环境变量
+
+server:
+  port: 8090
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8091/eureka/
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      #      uri: http://localhost:8097
+      #      相当于不同的环境环境dev,prod等等 spring.application.name+profile.yml ->({application}-{profile}.yml)
+      profile: dev
+      #      git的话就是分支名字
+      label: master
+      #启动失败时能够快速响应
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: config-server
+
+
+#需要开启refresh endpoint才可以使用refresh
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, info, refresh"
+

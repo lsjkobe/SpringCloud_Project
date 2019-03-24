@@ -20,6 +20,19 @@ feign:
   hystrix:
     enabled: true
 
+#  修改feign的超时时间
+  client:
+    config:
+      default:           #服务名，填写default为所有服务
+        connectTimeout: 1000
+        readTimeout: 5000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
 # To set thread isolation to SEMAPHORE
 hystrix:
   command:

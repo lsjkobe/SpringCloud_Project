@@ -10,6 +10,13 @@ spring:
       retry:
         enabled: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+
 hystrix:
   command:
     default:
@@ -17,6 +24,7 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds=10000:
+
 
 OLD-CLASSMATE:
     ribbon:
