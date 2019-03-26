@@ -1,9 +1,5 @@
-#需要修改application.yml(用户级)的名字为bootstrap.yml，要不由于加载的优先级，会先加载bootstrap.yml的默认端口8888（spring.cloud.config.uri=8888），这里配置的不起作用->源码ConfigServerBootstrapConfiguration
-# 2. 或者通过环境变量
-
 server:
-  port: 8502
-
+  port: 8504
 
 eureka:
   client:
@@ -25,15 +21,3 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
-
-  rabbitmq:
-    host: 149.28.142.66
-
-
-#需要开启refresh endpoint才可以使用refresh
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "health, info, refresh, bus-refresh"
-

@@ -6,14 +6,19 @@ package com.leoli.oc_log.receivers;// Copyright (c) 1998-2019 Core Solutions Lim
 // CNT.5.0.1 : 2019-XX-XX, leo.li, creation
 // ============================================================================
 
+import com.leoli.oc_log.configuration.PropertyConfiguration;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class LogReceiver {
 
-    @RabbitListener(queues = "ocLog")
+    @Autowired
+    PropertyConfiguration property;
+
+    @RabbitListener(queues = "{property.getQueue()}")
     public void process(String log){
-        System.out.println("Receiver:" + log);
+        System.out.println("Receiver:" + log+":"+property.getExchange()+":"+property.getKey()+":"+property.getQueue());
     }
 }

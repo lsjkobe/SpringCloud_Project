@@ -1,9 +1,3 @@
-server:
-  port: 8104
-
 spring:
-  application:
-    name: oc-log
-
   rabbitmq:
     host: 149.28.142.66

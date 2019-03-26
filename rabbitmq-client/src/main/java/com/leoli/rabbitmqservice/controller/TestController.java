@@ -20,9 +20,7 @@ public class TestController {
 
     @GetMapping(value = "/send/sample/{msg}")
     public Object sendSample(@PathVariable("msg") String msg) {
-        rabbitTemplate.setExchange("ocExchange");
-        rabbitTemplate.setRoutingKey("log");
-        return rabbitTemplate.convertSendAndReceive("ocLog", msg);
+        return rabbitTemplate.convertSendAndReceive("ocExchange","log", msg);
     }
 //
 //    @GetMapping(value = "/send/sample/{msg}")
