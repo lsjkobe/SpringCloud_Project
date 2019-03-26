@@ -1,16 +1,16 @@
 server:
-  port: 8090
+  port: 8501
 
 spring:
   application:
     name: config-client
   cloud:
     config:
-      uri: http://localhost:8097
+      uri: http://localhost:8061
       profile: default
       label: master
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8091/eureka/
+      defaultZone: http://localhost:8600/eureka/

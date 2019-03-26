@@ -1,7 +1,7 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8091/eureka/
+      defaultZone: http://localhost:8600/eureka/
 
 
 
@@ -13,7 +13,16 @@ spring:
       server:
         git:
           #          uri: https://github.com/lsjkobe/SpringCloud_ConfigService_Config.git
-          uri: E:\local_git\springcloud_config
+          uri: D:\leo.li\local_git\springcloud_config
 #          username: leoli
 #          password: li936339745
 
+
+  rabbitmq:
+    host: 149.28.142.66
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, info, bus-refresh"

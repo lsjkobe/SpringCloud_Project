@@ -1,5 +1,5 @@
 server:
-  port: 8999
+  port: 8605
 
 spring:
   application:
@@ -38,6 +38,6 @@ OLD-CLASSMATE:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8091/eureka/
+      defaultZone: http://localhost:8600/eureka/
 
 
