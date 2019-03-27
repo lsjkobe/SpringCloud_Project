@@ -1,6 +1,4 @@
-server:
-  port: 8503
+#spring:
+#  rabbitmq:
+#    host: 149.28.142.66
 
-spring:
-  rabbitmq:
-    host: 149.28.142.66

@@ -1,5 +1,5 @@
 server:
-  port: 8104
+  port: 8503
 
 eureka:
   client:
@@ -8,7 +8,7 @@ eureka:
 
 spring:
   application:
-    name: oc-log
+    name: rabbitmq-client
   cloud:
     config:
       #      uri: http://localhost:8097
@@ -21,3 +21,6 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
+
+  rabbitmq:
+    host: 149.28.142.66

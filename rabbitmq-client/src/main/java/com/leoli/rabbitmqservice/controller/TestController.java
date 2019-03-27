@@ -6,11 +6,16 @@ package com.leoli.rabbitmqservice.controller;// Copyright (c) 1998-2019 Core Sol
 // CNT.5.0.1 : 2019-XX-XX, leo.li, creation
 // ============================================================================
 
+import com.leoli.rabbitmqservice.configuration.PropertyConfiguration;
+import org.apache.logging.log4j.Level;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 public class TestController {
@@ -18,13 +23,20 @@ public class TestController {
     @Autowired
     RabbitTemplate rabbitTemplate;
 
+    @Autowired
+    PropertyConfiguration property;
+
     @GetMapping(value = "/send/sample/{msg}")
     public Object sendSample(@PathVariable("msg") String msg) {
-        return rabbitTemplate.convertSendAndReceive("ocExchange","log", msg);
+        return rabbitTemplate.convertSendAndReceive(property.getExchange(),property.getKey(), msg);
     }
 //
-//    @GetMapping(value = "/send/sample/{msg}")
-//    public Object sendTest(@PathVariable("msg") String msg) {
-//        return rabbitTemplate..convertSendAndReceive("oclog", msg);
-//    }
+    @GetMapping(value = "/send/fanout/{msg}")
+    public Object sendLog(@PathVariable("msg") String msg) {
+        CorrelationData data = new CorrelationData();
+        ConcurrentHashMap<String , Object> map = new ConcurrentHashMap<>();
+        map.put("msg", msg);
+        map.put("logLevel", Level.INFO);
+        return rabbitTemplate.convertSendAndReceive("fanoutLog","", map);
+    }
 }

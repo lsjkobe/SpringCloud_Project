@@ -7,6 +7,7 @@ package com.leoli.rabbitmqservice.configuration;// Copyright (c) 1998-2019 Core 
 // ============================================================================
 
 import org.springframework.amqp.core.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -31,19 +32,41 @@ public class RabbitSendConfiguration {
 //        factory.setAcknowledgeMode(AcknowledgeMode.AUTO);
 //        return factory;
 //    }
+
+    @Autowired
+    PropertyConfiguration property;
     @Bean
     public Queue queue() {
-        return new Queue("ocLog");
+        return new Queue(property.getQueue());
     }
 
     @Bean
     public Exchange directExchange() {
-        return new DirectExchange("ocExchange");
+        return new DirectExchange(property.getExchange());
     }
 
     @Bean
-    public Binding directBinding() {
-        return BindingBuilder.bind(queue()).to(directExchange()).with("log").noargs();
+    public Binding directLogBinding() {
+        return BindingBuilder.bind(queue()).to(directExchange()).with(property.getKey()).noargs();
     }
 
+    @Bean
+    FanoutExchange fanoutExchange() {
+        return new FanoutExchange("fanoutLog");//配置广播路由器
+    }
+
+    @Bean
+    public Queue fanoutLogQueue() {
+        return new Queue("ocLog1");
+    }
+
+    @Bean
+    public Binding fanoutLogBinding1() {
+        return BindingBuilder.bind(queue()).to(fanoutExchange());
+    }
+
+    @Bean
+    public Binding fanoutLogBinding2() {
+        return BindingBuilder.bind(fanoutLogQueue()).to(fanoutExchange());
+    }
 }

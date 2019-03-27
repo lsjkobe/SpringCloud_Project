@@ -17,8 +17,13 @@ public class LogReceiver {
     @Autowired
     PropertyConfiguration property;
 
-    @RabbitListener(queues = "{property.getQueue()}")
+    @RabbitListener(queues = "ocLog")
     public void process(String log){
-        System.out.println("Receiver:" + log+":"+property.getExchange()+":"+property.getKey()+":"+property.getQueue());
+        System.out.println("Receiver:" + log);
+    }
+
+    @RabbitListener(queues = "ocLog1", containerFactory = "multiListenerContainer")
+    public void receiveLog(Object log){
+        System.out.println("Receiver:" + log.toString());
     }
 }
