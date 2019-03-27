@@ -7,6 +7,8 @@ package com.leoli.rabbitmqservice.configuration;// Copyright (c) 1998-2019 Core 
 // ============================================================================
 
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,6 +34,12 @@ public class RabbitSendConfiguration {
 //        factory.setAcknowledgeMode(AcknowledgeMode.AUTO);
 //        return factory;
 //    }
+
+    @Bean
+    public MessageConverter messageConverter(){
+        return new Jackson2JsonMessageConverter();
+    }
+
 
     @Autowired
     PropertyConfiguration property;
@@ -60,10 +68,10 @@ public class RabbitSendConfiguration {
         return new Queue("ocLog1");
     }
 
-    @Bean
-    public Binding fanoutLogBinding1() {
-        return BindingBuilder.bind(queue()).to(fanoutExchange());
-    }
+//    @Bean
+//    public Binding fanoutLogBinding1() {
+//        return BindingBuilder.bind(queue()).to(fanoutExchange());
+//    }
 
     @Bean
     public Binding fanoutLogBinding2() {

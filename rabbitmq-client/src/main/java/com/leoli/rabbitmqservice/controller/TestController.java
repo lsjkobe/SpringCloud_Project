@@ -8,7 +8,6 @@ package com.leoli.rabbitmqservice.controller;// Copyright (c) 1998-2019 Core Sol
 
 import com.leoli.rabbitmqservice.configuration.PropertyConfiguration;
 import org.apache.logging.log4j.Level;
-import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,10 +32,9 @@ public class TestController {
 //
     @GetMapping(value = "/send/fanout/{msg}")
     public Object sendLog(@PathVariable("msg") String msg) {
-        CorrelationData data = new CorrelationData();
         ConcurrentHashMap<String , Object> map = new ConcurrentHashMap<>();
-        map.put("msg", msg);
-        map.put("logLevel", Level.INFO);
+        map.put("logMsg", msg);
+        map.put("logLevel", Level.INFO.name());
         return rabbitTemplate.convertSendAndReceive("fanoutLog","", map);
     }
 }

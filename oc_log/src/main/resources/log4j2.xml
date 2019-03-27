@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <!--添加一个控制台追加器-->
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout>
+                <pattern>[%-5p] %d %c - %m%n</pattern>
+            </PatternLayout>
+        </Console>
+        <!--添加一个文本追加器，文件位于根目录下，名为log.log-->
+        <File name="LogFile" fileName="log/log12345678.log" append="false">
+            <PatternLayout>
+                <pattern>[%-5p] %d %c - %m%n</pattern>
+            </PatternLayout>
+        </File>
+
+        <File name="File" fileName="log/leoli.log" append="false">
+            <PatternLayout>
+                <pattern>[%-5p] %d %c - %m%n</pattern>
+            </PatternLayout>
+        </File>
+
+        <!--这个log每次运行程序会自动清空，由append属性决定，这个也挺有用的，适合临时测试用-->
+        <File name="ERROR" fileName="log/error.log"  append="false">
+            <ThresholdFilter level="error" onMatch="ACCEPT"
+                             onMismatch="DENY" />
+            <PatternLayout>
+                <pattern>[%-5p] %d %c - %m%n</pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <!--<Root level="info">-->
+            <!--<AppenderRef ref="ERROR" />-->
+            <!--<AppenderRef ref="Console" />-->
+            <!--<AppenderRef ref="File" />-->
+        <!--</Root>-->
+        <!--<Logger name="org.springframework" level="info" additivity="false">-->
+            <!--<AppenderRef ref="File" />-->
+        <!--</Logger>-->
+        <logger name="com.leoli.oc_log.receivers" level="trace" additivity="false">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="LogFile"/>
+        </logger>
+    </Loggers>
+</Configuration>
