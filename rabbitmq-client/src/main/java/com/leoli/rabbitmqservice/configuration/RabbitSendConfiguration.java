@@ -77,4 +77,20 @@ public class RabbitSendConfiguration {
     public Binding fanoutLogBinding2() {
         return BindingBuilder.bind(fanoutLogQueue()).to(fanoutExchange());
     }
+
+//    topic exchange
+    @Bean
+    public Queue topicLogQueue(){
+        return new Queue("ocTopicLogQueue");
+    }
+
+    @Bean
+    public Exchange topicLogExchange(){
+        return new TopicExchange("ocTopicLogExchange");
+    }
+
+    @Bean
+    public Binding topicLogBinding() {
+        return BindingBuilder.bind(topicLogQueue()).to(topicLogExchange()).with("log.#").noargs();
+    }
 }

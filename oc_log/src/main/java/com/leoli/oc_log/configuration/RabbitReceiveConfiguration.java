@@ -21,31 +21,22 @@ public class RabbitReceiveConfiguration {
     private SimpleRabbitListenerContainerFactoryConfigurer factoryConfigurer;
     @Autowired
     private CachingConnectionFactory connectionFactory;
+
+//    @Autowired
+//    MessagingMessageListenerAdapter messageListenerAdapter;
+
     @Bean(name = "multiListenerContainer")
     public SimpleRabbitListenerContainerFactory multiListenerContainer(){
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factoryConfigurer.configure(factory,connectionFactory);
         factory.setMessageConverter(new Jackson2JsonMessageConverter());
-        factory.setAcknowledgeMode(AcknowledgeMode.NONE);
+        //AcknowledgeMode.AUTO 根据状态自动确认
+        // AcknowledgeMode.NONE 不确认，消费者拿到后消息队伍就没有了，不管后面有没有抛出exception
+        // AcknowledgeMode.MANUAL 手动确认，消费者确认无误后，可以via a channel aware listener
+        factory.setAcknowledgeMode(AcknowledgeMode.AUTO);
         factory.setConcurrentConsumers(20);
         factory.setMaxConcurrentConsumers(20);
         factory.setPrefetchCount(5);
         return factory;
     }
-//
-//    @Bean
-//    public Queue queue() {
-//        return new Queue("ocLog");
-//
-//    }
-//
-//    @Bean
-//    public Exchange directExchange() {
-//        return new DirectExchange("ocExchange");
-//    }
-//
-//    @Bean
-//    public Binding directBinding() {
-//        return BindingBuilder.bind(queue()).to(directExchange()).with("log").noargs();
-//    }
 }

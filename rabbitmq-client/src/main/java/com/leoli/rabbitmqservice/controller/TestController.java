@@ -27,7 +27,8 @@ public class TestController {
 
     @GetMapping(value = "/send/sample/{msg}")
     public Object sendSample(@PathVariable("msg") String msg) {
-        return rabbitTemplate.convertSendAndReceive(property.getExchange(),property.getKey(), msg);
+        rabbitTemplate.convertAndSend(property.getExchange(),property.getKey(), msg);
+        return "";
     }
 //
     @GetMapping(value = "/send/fanout/{msg}")
@@ -35,6 +36,15 @@ public class TestController {
         ConcurrentHashMap<String , Object> map = new ConcurrentHashMap<>();
         map.put("logMsg", msg);
         map.put("logLevel", Level.INFO.name());
-        return rabbitTemplate.convertSendAndReceive("fanoutLog","", map);
+        rabbitTemplate.convertAndSend("fanoutLog","", map);
+        return "";
+    }
+//
+    @GetMapping(value = "/send/topic/{msg}")
+    public Object sendTopicLog(@PathVariable("msg") String msg) {
+        ConcurrentHashMap<String , Object> map = new ConcurrentHashMap<>();
+        map.put("logMsg", msg);
+        map.put("logLevel", Level.DEBUG.name());
+        return rabbitTemplate.convertSendAndReceive("ocTopicLogExchange","log.info", map);
     }
 }

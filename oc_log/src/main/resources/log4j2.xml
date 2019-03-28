@@ -30,14 +30,14 @@
         </File>
     </Appenders>
     <Loggers>
-        <!--<Root level="info">-->
-            <!--<AppenderRef ref="ERROR" />-->
-            <!--<AppenderRef ref="Console" />-->
-            <!--<AppenderRef ref="File" />-->
-        <!--</Root>-->
-        <!--<Logger name="org.springframework" level="info" additivity="false">-->
-            <!--<AppenderRef ref="File" />-->
-        <!--</Logger>-->
+        <Root level="info">
+            <AppenderRef ref="ERROR" />
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Root>
+        <Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="File" />
+        </Logger>
         <logger name="com.leoli.oc_log.receivers" level="trace" additivity="false">
             <appender-ref ref="Console"/>
             <appender-ref ref="LogFile"/>

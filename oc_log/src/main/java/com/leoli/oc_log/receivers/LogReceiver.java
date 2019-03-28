@@ -23,16 +23,28 @@ public class LogReceiver {
     @Autowired
     PropertyConfiguration property;
 
-//    @RabbitListener(queues = "ocLog")
-//    public void process(String log){
-//        System.out.println("Receiver:" + log);
-//    }
+    @RabbitListener(queues = "ocLog")
+    public void process(String log) throws Exception {
+        this.log(null, log);
+//        throw new Exception("123");
+    }
 
-    @RabbitListener(queues = "ocLog1", containerFactory = "multiListenerContainer")
+    @RabbitListener(queues = "ocLog1" , containerFactory = "multiListenerContainer")
     public void receiveLog(ConcurrentHashMap log){
         String level = (String) log.get("logLevel");
         String msg = (String) log.get("logMsg");
-        System.out.println("Receiver:" + log.toString());
+        this.log(level, msg);
+    }
+
+    @RabbitListener(queues = "ocTopicLogQueue", containerFactory = "multiListenerContainer")
+    public void receiveTocipLog(ConcurrentHashMap log) throws Exception {
+
+        String level = (String) log.get("logLevel");
+        String msg = (String) log.get("logMsg");
+        this.log(level, msg);
+    }
+
+    private void log(String level, String msg){
         LOGGER.log(Level.toLevel(level), msg);
     }
 }

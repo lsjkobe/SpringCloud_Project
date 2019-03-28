@@ -13,8 +13,8 @@ spring:
       server:
         git:
           #          uri: https://github.com/lsjkobe/SpringCloud_ConfigService_Config.git
-          uri: E:\local_git\springcloud_config
-#          uri: D:\leo.li\local_git\springcloud_config
+#          uri: E:\local_git\springcloud_config
+          uri: D:\leo.li\local_git\springcloud_config
   #          username: leoli
 #          password: li936339745
 

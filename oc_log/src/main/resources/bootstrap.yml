@@ -1,5 +1,5 @@
 server:
-  port: 8104
+  port: 8504
 
 eureka:
   client:
@@ -21,3 +21,6 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
+
+#  rabbitmq:
+#    host: 149.28.142.66
