@@ -45,6 +45,7 @@ public class TestController {
         ConcurrentHashMap<String , Object> map = new ConcurrentHashMap<>();
         map.put("logMsg", msg);
         map.put("logLevel", Level.DEBUG.name());
-        return rabbitTemplate.convertSendAndReceive("ocTopicLogExchange","log.info", map);
+        rabbitTemplate.convertAndSend("ocTopicLogExchange","log.info", map);
+        return "";
     }
 }

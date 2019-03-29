@@ -20,6 +20,7 @@ public class SendLogService {
     SendLog sendLog;
 
     public void send(String msg){
-        this.sendLog.output().send(MessageBuilder.withPayload(msg).build());
+        this.sendLog.output().send(MessageBuilder.withPayload(msg).setHeader("version","1.0").build());
+        this.sendLog.output().send(MessageBuilder.withPayload(msg).setHeader("version","2.0").build());
     }
 }
