@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8600/eureka/
+      defaultZone: http://149.28.142.66:8080/cloud_server/eureka
 
 spring:
   application:
@@ -41,6 +41,9 @@ zuul:
     old-a:
       path: /old-a/**
       serviceId: old-classmate
+    skipe:
+      path: /skipe/**
+      serviceId: my-lock
 #
 #
 #  host:

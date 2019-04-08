@@ -1,0 +1,60 @@
+[INFO ] 2019-04-06 14:54:00,689 org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$f9d6f545] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-04-06 14:54:01,029 com.leoli.old_classmate.OldClassmateApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2019-04-06 14:54:01,789 org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 2019-04-06 14:54:01,794 org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+[INFO ] 2019-04-06 14:54:01,814 org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+[WARN ] 2019-04-06 14:54:01,894 org.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+[INFO ] 2019-04-06 14:54:02,054 org.springframework.cloud.context.scope.GenericScope - BeanFactory id=016e38ab-5ca9-33ab-8bbf-5efbefbc5e75
+[INFO ] 2019-04-06 14:54:02,149 org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ddbcf248] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-04-06 14:54:02,199 org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$f9d6f545] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-04-06 14:54:02,424 org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8500 (http)
+[INFO ] 2019-04-06 14:54:02,429 org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8500"]
+[INFO ] 2019-04-06 14:54:02,439 org.apache.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2019-04-06 14:54:02,439 org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+[INFO ] 2019-04-06 14:54:02,444 org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-11.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\software\xshell6\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Java\jdk-11.0.2\bin;C:\Program Files\Java\jdk-11.0.2\jre\bin;C:\Program Files\Git\cmd;D:\software\postgresql\bin;D:\software\nodejs\;D:\software\apache-maven-3.6.0\bin;C:\Users\ThinkPad\AppData\Local\Microsoft\WindowsApps;C:\Users\ThinkPad\AppData\Roaming\npm;D:\software\Microsoft VS Code\bin;.]
+[INFO ] 2019-04-06 14:54:02,549 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2019-04-06 14:54:02,549 org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1515 ms
+[WARN ] 2019-04-06 14:54:02,639 com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+[INFO ] 2019-04-06 14:54:02,639 com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[INFO ] 2019-04-06 14:54:02,649 com.netflix.config.DynamicPropertyFactory - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@72ec16f8
+[INFO ] 2019-04-06 14:54:03,924 org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+[INFO ] 2019-04-06 14:54:03,989 springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[WARN ] 2019-04-06 14:54:03,999 com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+[INFO ] 2019-04-06 14:54:03,999 com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[INFO ] 2019-04-06 14:54:04,119 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2019-04-06 14:54:04,859 org.springframework.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+[INFO ] 2019-04-06 14:54:04,884 com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+[INFO ] 2019-04-06 14:54:04,999 com.netflix.discovery.provider.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+[INFO ] 2019-04-06 14:54:04,999 com.netflix.discovery.provider.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+[INFO ] 2019-04-06 14:54:05,104 com.netflix.discovery.provider.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+[INFO ] 2019-04-06 14:54:05,104 com.netflix.discovery.provider.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+[INFO ] 2019-04-06 14:54:05,239 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+[INFO ] 2019-04-06 14:54:05,399 com.netflix.discovery.DiscoveryClient - Disable delta property : false
+[INFO ] 2019-04-06 14:54:05,399 com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+[INFO ] 2019-04-06 14:54:05,399 com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+[INFO ] 2019-04-06 14:54:05,399 com.netflix.discovery.DiscoveryClient - Application is null : false
+[INFO ] 2019-04-06 14:54:05,399 com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+[INFO ] 2019-04-06 14:54:05,399 com.netflix.discovery.DiscoveryClient - Application version is -1: true
+[INFO ] 2019-04-06 14:54:05,409 com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+[INFO ] 2019-04-06 14:54:05,739 com.netflix.discovery.DiscoveryClient - The response status is 200
+[INFO ] 2019-04-06 14:54:05,739 com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+[INFO ] 2019-04-06 14:54:05,749 com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+[INFO ] 2019-04-06 14:54:05,749 com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1554533645749 with initial instances count: 1
+[INFO ] 2019-04-06 14:54:05,749 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry - Registering application OLD-CLASSMATE with eureka with status UP
+[INFO ] 2019-04-06 14:54:05,749 com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1554533645749, current=UP, previous=STARTING]
+[INFO ] 2019-04-06 14:54:05,754 springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2019-04-06 14:54:05,754 com.netflix.discovery.DiscoveryClient - DiscoveryClient_OLD-CLASSMATE/192.168.0.103:OLD-CLASSMATE:8500: registering service...
+[INFO ] 2019-04-06 14:54:05,769 springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2019-04-06 14:54:05,794 springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2019-04-06 14:54:05,894 com.netflix.discovery.DiscoveryClient - DiscoveryClient_OLD-CLASSMATE/192.168.0.103:OLD-CLASSMATE:8500 - registration status: 204
+[INFO ] 2019-04-06 14:54:05,929 org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8500"]
+[INFO ] 2019-04-06 14:54:05,949 org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8500 (http) with context path ''
+[INFO ] 2019-04-06 14:54:05,949 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration - Updating port to 8500
+[INFO ] 2019-04-06 14:54:05,949 com.leoli.old_classmate.OldClassmateApplication - Started OldClassmateApplication in 6.42 seconds (JVM running for 7.521)
+[INFO ] 2019-04-06 14:54:06,419 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2019-04-06 14:54:06,419 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2019-04-06 14:54:06,419 org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2019-04-06 14:54:06,434 org.springframework.web.servlet.DispatcherServlet - Completed initialization in 15 ms
+[INFO ] 2019-04-06 14:54:06,639 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2019-04-06 14:54:06,744 io.lettuce.core.EpollProvider - Starting without optional epoll library
+[INFO ] 2019-04-06 14:54:06,744 io.lettuce.core.KqueueProvider - Starting without optional kqueue library

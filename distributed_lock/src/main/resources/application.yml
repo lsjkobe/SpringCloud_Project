@@ -1,0 +1,29 @@
+server:
+  port: 8305
+
+spring:
+  application:
+    name: my-lock
+  redis:
+    host: 149.28.142.66
+    port: 6379
+    password: li936339745
+    timeout: 10000
+    database: 0
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 2
+        max-wait: 100
+        max-active: 10
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://149.28.142.66:8080/cloud_server/eureka
+
+redisson:
+  address: redis://149.28.142.66:6379
+  password: li936339745
