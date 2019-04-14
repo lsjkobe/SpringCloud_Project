@@ -1,0 +1,17 @@
+server:
+  port: 8506
+
+spring:
+  application:
+    name: md-server
+
+  data:
+    mongodb:
+      uri: mongodb://leo:leo@localhost:27017/md
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://149.28.142.66:8080/cloud_server/eureka
+
+
